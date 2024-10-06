@@ -32,13 +32,11 @@ body {
   justify-content: space-evenly;
   margin-top: 23vh;
   margin-right: 40px;
-  background: #5c5a5a6e;
   backdrop-filter: blur(65px);
   background: rgba(0, 0, 0, 0.192);
   border-radius: 20px;
   width: 26%;
   height: 50vh;
-  min-width: 150px;
   overflow: hidden;
 }
 
@@ -171,21 +169,21 @@ img {
 
 @media (max-width: 768px) {
   body {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align elements */
-    padding: 10px; /* Reduced padding */
+    flex-direction: column; 
+    align-items: center; 
+    padding: 10px; 
   }
   .wrapper {
     flex-direction: column; /* Stack layout */
-    width: 100%; /* Full width */
+    width: 100%; 
   }
   .sidebar {
-    width: 100%; /* Sidebar takes full width */
+    width: 100%; 
     padding: 15px;
     border-radius: 20px;
   }
   .main {
-    width: 100%; /* Main section takes full width */
+    width: 100%; 
     padding: 20px 10px;
     border-radius: 15px;
   }
@@ -195,7 +193,7 @@ img {
     }
 
   
-  /* Hide the .left section and its contents */
+  /* hide the .left section and its contents */
   .left,
   .left h1,
   .left h2,
@@ -215,25 +213,25 @@ img {
   }
 
   body {
-    min-width: 100%; /* Forces body width to fit the screen */
-    padding: 10px; /* Adjust padding */
+    min-width: 100%; 
+    padding: 10px; 
   }
   .wrapper {
-    flex-direction: column; /* Ensure vertical stacking */
-    align-items: center; /* Center the wrapper contents */
-    width: 100%; /* Full width */
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
   }
   .sidebar {
-    width: 100%; /* Sidebar full width */
+    width: 100%; 
   }
   .main {
-    padding: 15px; /* Consistent padding */
+    padding: 15px; 
   }
   
 }
 
 @media (max-width: 375px) {
-  /* Hide the .left section and its contents */
+  
   .left,
   .left h1,
   .left h2,
@@ -242,11 +240,11 @@ img {
   }
 
   .main nav .options button {
-    font-size: 12px; /* Smaller button text */
+    font-size: 12px; /* smaller button text */
   }
   .cards .card {
-    width: 70px; /* Adjust card width */
-    height: 100px; /* Adjust card height */
+    width: 70px; /* Update card width */
+    height: 100px; /* Update card height */
   }
   .card2 {
     width: 100%; /* Full width for cards */
@@ -254,11 +252,11 @@ img {
   
 }
 
-/* Additional fix for overflow */
+
 .main,
 .sidebar {
-  max-width: 100%; /* Prevents overflow of main content and sidebar */
-  overflow-x: hidden; /* No horizontal overflow */
+  max-width: 100%; 
+  overflow-x: hidden; 
 }
 
 
@@ -472,9 +470,13 @@ img {
   cursor: pointer;
   transition: transform 0.3s ease;
   }
+  
+  
   .cards .card:hover {
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
+
+
 .card h2 {
   font-size: 15px;
   font-weight: 600;
@@ -495,6 +497,7 @@ img {
 .highlights {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 20px;
   margin-top: 80px;
   padding: 20px;
@@ -512,12 +515,6 @@ img {
   font-size: 20px;
   font-weight: 600;
   text-transform: capitalize;
-}
-
-
-/* Todays High heading */
-
-.highlights h2 {
   color: rgb(255, 226, 242);
   font-size: 24px;
   font-weight: 700;
@@ -529,6 +526,8 @@ img {
   -webkit-text-fill-color: transparent;
   filter: blur(0.5px);
 }
+
+
 
 /*Bottom cards */
 
