@@ -26,6 +26,24 @@ let currentCity = "";
 let currentUnit = "c";
 let hourlyorWeek = "week";
 
+
+// Function for clock time 
+
+function updateClock(){
+
+  const now = new Date();
+  let hours = now.getHours();
+  const meridiem = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12 || 12;
+  const minutes = now.getMinutes();
+  const timestring = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}` + " "+ meridiem;
+  document.getElementById("clock").textContent = timestring;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
 // function to get date and time
 function getDateTime() {
   let now = new Date(),
@@ -41,23 +59,33 @@ function getDateTime() {
     "Friday",
     "Saturday",
   ];
+  
   // 12 hours format
-  hour = hour % 12;
-  if (hour < 10) {
-    hour = "0" + hour;
-  }
-  if (minute < 10) {
-    minute = "0" + minute;
-  }
+  
   let dayString = days[now.getDay()];
   return `${dayString}, ${hour}:${minute}`;
 }
 
-//Updating date and time
+//Set date and time
 date.innerText = getDateTime();
 setInterval(() => {
   date.innerText = getDateTime();
 }, 1000);
+
+
+// function to convert celcius to fahrenheit
+function celciusToFahrenheit(temp) {
+  return ((temp * 9) / 5 + 32).toFixed(1);
+}
+
+fahrenheitBtn.addEventListener("click", () => {
+  changeUnit("f");
+});
+celciusBtn.addEventListener("click", () => {
+  changeUnit("c");
+});
+
+
 
 // function to get weather data
 function getWeatherData(city, unit, hourlyorWeek) {
@@ -176,7 +204,7 @@ function changeBackground(condition) {
   } else if (condition === "clear-day") {
     bg = "https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   } else if (condition === "clear-night") {
-    bg = "https://images.wallpapersden.com/image/download/half-moon-dark-night_bGltbWmUmZqaraWkpJRmbmdlrWZlbWU.jpg";
+    bg = "https://wallpapers.com/images/hd/night-sky-background-cpxe9t4nl6x8qwiv.jpg";
   } else {
     bg = "https://papers.co/wallpaper/papers.co-nl31-night-lake-blue-sunset-nature-soft-purple-25-wallpaper.jpg";
   }
@@ -186,7 +214,7 @@ function changeBackground(condition) {
 //get hours from hh:mm:ss Sunrise/set
 function getHour(time) {
   let hour = time.split(":")[0];
-  let min = time.split(":")[1];
+  let min = time.split(":")[1]
   if (hour > 12) {
     hour = hour - 12;
     return `${hour}:${min} PM`;
@@ -284,17 +312,6 @@ searchForm.addEventListener("submit", (e) => {
   }
 });
 
-// function to convert celcius to fahrenheit
-function celciusToFahrenheit(temp) {
-  return ((temp * 9) / 5 + 32).toFixed(1);
-}
-
-fahrenheitBtn.addEventListener("click", () => {
-  changeUnit("f");
-});
-celciusBtn.addEventListener("click", () => {
-  changeUnit("c");
-});
 
 // function to change units
 function changeUnit(unit) {
@@ -334,7 +351,6 @@ function changeTimeSpan(unit) {
     getWeatherData(currentCity, currentUnit, hourlyorWeek);
   }
 }
-
 
 
 

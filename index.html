@@ -5,11 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      ​<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       </head>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>the Weather</title>
 </head>
 <body>
+  <div class="left">
+    <video autoplay loop muted plays-inline class="video">
+      <source src="videos/Lightning.mp4" type="video/mp4">
+    </video>
+    <h1 id="clock">00:00</h1>
+  <h1 class="text">the Weather</h1>
+  <h2 class="text">by MecLawd 
+    <a href="https://github.com/MecLawd" target="_blank">
+      <i class="fa fa-github"></i>
+  </a> 
+  </h2>
+  <h3>alx Capstone</h3>
+  <h4 class="text2"></h4>
+ </div>
+
+
+ <div class="links">
+</div>
     <div class="wrapper">
         <div class="sidebar">
           <div>
@@ -30,18 +50,18 @@
             <div class="divider"></div>
             <div class="condition-rain">
               <div class="condition">
-                <i class="fas fa-cloud"></i>
+                <i class="fas fa-cloud-sun"></i>
                 <p id="condition">condition</p>
               </div>
               <div class="rain">
-                <i class="fas fa-tint"></i>
+                <i class="fas fa-cloud-showers-heavy"></i>
                 <p id="rain">perc - 0%</p>
               </div>
             </div>
           </div>
           <div class="location">
             <div class="location-icon">
-              <i class="fas fa-map-marker-alt"></i>
+              <i class="material-icons">&#xe55c;</i>
             </div>
             <div class="location-text">
               <p id="location">location</p>
@@ -51,7 +71,7 @@
         <div class="main">
           <nav>
             <ul class="options">
-              <button class="hourly">today</button>
+              <button class="hourly">day</button>
               <button class="week active">week</button>
             </ul>
             <h1>alx Weather</h1>
@@ -62,7 +82,7 @@
           </nav>
           <div class="cards" id="weather-cards"></div>
           <div class="highlights">
-            <h2 class="heading">today's highlights</h2>
+            <h2 class="heading">Weather Stats Report</h2>
             <div class="cards">
               </div>
               <div class="card2">
