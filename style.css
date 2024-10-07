@@ -18,7 +18,7 @@ body {
   width: 100%; /* Full width */
   padding: 30px;
   background: var(--primary-color);
-  background-image: linear-gradient(rgba(73, 59, 192, 0.418), rgba(17, 12, 12, 0.5)),
+  background-image: linear-gradient(rgba(103, 52, 185, 0.288), rgba(17, 12, 12, 0.5)),
     url("./images/pcn.jpg");
   background-size: cover;
   background-position: center;
@@ -474,7 +474,7 @@ img {
     transform: scale(1.2);
 }
 
-
+/* Upper cards content style */
 .card h2 {
   color: #d3d3d3;
   font-size: 15px;
@@ -485,6 +485,7 @@ img {
   margin: 0 auto;
 }
 .card .day-temp {
+  color: white;
   font-size: 12px;
   display: flex;
   justify-content: center;

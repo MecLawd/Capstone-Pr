@@ -208,7 +208,7 @@ function changeBackground(condition) {
   } else {
     bg = "https://papers.co/wallpaper/papers.co-nl31-night-lake-blue-sunset-nature-soft-purple-25-wallpaper.jpg";
   }
-  body.style.backgroundImage = `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(${bg})`;
+  body.style.backgroundImage = `linear-gradient(rgba(103, 52, 185, 0.288), rgba(17, 12, 12, 0.5)), url(${bg})`;
 }
 
 //get hours from hh:mm:ss Sunrise/set
