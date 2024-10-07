@@ -377,7 +377,7 @@ img {
   padding-bottom: 90px;
 }
 
-
+/* Alx weather heading */
 .main h1{
   position: absolute;
   top: 20px;
@@ -387,6 +387,8 @@ img {
   letter-spacing: 0.5%;
   color:hsla(258, 16%, 72%, 0.692);
 }
+
+/* Day Week Style nav */
 
 .main nav {
   display: flex;

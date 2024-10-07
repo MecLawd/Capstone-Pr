@@ -45,6 +45,7 @@ setInterval(updateClock, 1000);
 
 
 // function to get date and time
+
 function getDateTime() {
   let now = new Date(),
     hour = now.getHours(),
@@ -133,6 +134,7 @@ function getWeatherData(city, unit, hourlyorWeek) {
 }
 
 //function to update Forecast
+
 function updateForecast(data, unit, type) {
   weatherCards.innerHTML = "";
   let day = 0;
@@ -174,6 +176,7 @@ function updateForecast(data, unit, type) {
   }
 }
 
+
 // function to change weather icons
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
@@ -192,6 +195,8 @@ function getIcon(condition) {
 }
 
 // function to change background img depending on weather conditions
+
+
 function changeBackground(condition) {
   const body = document.querySelector("body");
   let bg = "";
@@ -211,7 +216,9 @@ function changeBackground(condition) {
   body.style.backgroundImage = `linear-gradient(rgba(103, 52, 185, 0.288), rgba(17, 12, 12, 0.5)), url(${bg})`;
 }
 
+
 //get hours from hh:mm:ss Sunrise/set
+
 function getHour(time) {
   let hour = time.split(":")[0];
   let min = time.split(":")[1]
@@ -224,6 +231,7 @@ function getHour(time) {
 }
 
 // convert time to 12 hour format
+
 function covertTimeTo12HourFormat(time) {
   let hour = time.split(":")[0];
   let minute = time.split(":")[1];
@@ -237,6 +245,7 @@ function covertTimeTo12HourFormat(time) {
 }
 
 // function to get day name from date for 7 forcats units
+
 function getDayName(date) {
   let day = new Date(date);
   let days = [
@@ -254,6 +263,7 @@ function getDayName(date) {
 
 
 // Get humidity and its status
+
 function updateHumidityStatus(humidity) {
   if (humidity <= 30) {
     humidityStatus.innerText = "Low";
@@ -265,6 +275,7 @@ function updateHumidityStatus(humidity) {
 }
 
 // function to get visibility status
+
 function updateVisibiltyStatus(visibility) {
   if (visibility <= 0.03) {
     visibilityStatus.innerText = "Dense Fog";
@@ -286,6 +297,7 @@ function updateVisibiltyStatus(visibility) {
 }
 
 // function to get air quality status
+
 function updateAirQualityStatus(airquality) {
   if (airquality <= 50) {
     airQualityStatus.innerText = "Good";
@@ -303,6 +315,7 @@ function updateAirQualityStatus(airquality) {
 }
 
 // function to handle search form
+
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let location = search.value;
@@ -314,6 +327,7 @@ searchForm.addEventListener("submit", (e) => {
 
 
 // function to change units
+
 function changeUnit(unit) {
   if (currentUnit !== unit) {
     currentUnit = unit;
@@ -338,6 +352,7 @@ weekBtn.addEventListener("click", () => {
 });
 
 // icon
+
 function changeTimeSpan(unit) {
   if (hourlyorWeek !== unit) {
     hourlyorWeek = unit;

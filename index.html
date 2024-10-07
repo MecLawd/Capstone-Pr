@@ -11,25 +11,28 @@
     <link rel="stylesheet" href="style.css">
     <title>the Weather</title>
 </head>
+
 <body>
+  
+  
   <div class="left">
+    
     <video autoplay loop muted plays-inline class="video">
       <source src="videos/Lightning.mp4" type="video/mp4">
     </video>
+    
     <h1 id="clock">00:00</h1>
   <h1 class="text">the Weather</h1>
   <h2 class="text">by MecLawd 
+    
     <a href="https://github.com/MecLawd" target="_blank">
-      <i class="fa fa-github"></i>
-  </a> 
+      <i class="fa fa-github"></i></a> 
   </h2>
+  
   <h3>alx Capstone</h3>
   <h4 class="text2"></h4>
  </div>
 
-
- <div class="links">
-</div>
     <div class="wrapper">
         <div class="sidebar">
           <div>
@@ -37,28 +40,36 @@
               <input type="text" id="query" placeholder="Search..." />
               <button><i class="fas fa-search"></i></button>
             </form>
+            
             <div class="weather-icon">
               <img id="icon" src="icons/moon/10.png" alt="" />
             </div>
+            
             <div class="temperature">
               <h1 id="temp">0</h1>
               <span class="temp-unit">°C</span>
             </div>
+            
             <div class="date-time">
               <p id="date-time">Monday, 12:00</p>
             </div>
+            
             <div class="divider"></div>
+            
             <div class="condition-rain">
               <div class="condition">
                 <i class="fas fa-cloud-sun"></i>
                 <p id="condition">condition</p>
               </div>
+              
               <div class="rain">
                 <i class="fas fa-cloud-showers-heavy"></i>
                 <p id="rain">perc 0%</p>
               </div>
             </div>
           </div>
+          
+          
           <div class="location">
             <div class="location-icon">
               <i class="material-icons">&#xe55c;</i>
@@ -68,30 +79,41 @@
             </div>
           </div>
         </div>
+        
+        
+        
         <div class="main">
+          <h1>alx Weather</h1>
           <nav>
+            
             <ul class="options">
               <button class="hourly">day</button>
               <button class="week active">week</button>
             </ul>
-            <h1>alx Weather</h1>
+            
             <ul class="options units">
               <button class="celcius active">°C</button>
               <button class="fahrenheit">°F</button>
             </ul>
+          
           </nav>
+          
           <div class="cards" id="weather-cards"></div>
+          
           <div class="highlights">
             <h2 class="heading">Weather Stats Report</h2>
             <div class="cards">
               </div>
-              <div class="card2">
+              
+              
+            <div class="card2">
                 <h4 class="card-heading">Wind Status</h4>
                 <div class="content">
                   <p class="wind-speed">0</p>
                   <p>km/h</p>
                 </div>
               </div>
+              
               <div class="card2">
                 <h4 class="card-heading">Sunrise & Sunset</h4>
                 <div class="content">
@@ -99,6 +121,7 @@
                   <p class="sun-set">0</p>
                 </div>
               </div>
+              
               <div class="card2">
                 <h4 class="card-heading">Humidity</h4>
                 <div class="content">
@@ -106,6 +129,7 @@
                   <p class="humidity-status">Normal</p>
                 </div>
               </div>
+              
               <div class="card2">
                 <h4 class="card-heading">Visibility</h4>
                 <div class="content">
@@ -113,6 +137,7 @@
                   <p class="visibilty-status">Normal</p>
                 </div>
               </div>
+              
               <div class="card2">
                 <h4 class="card-heading">Air Quality</h4>
                 <div class="content">
