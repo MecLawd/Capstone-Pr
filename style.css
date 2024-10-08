@@ -22,7 +22,6 @@ body {
     url("./images/pcn.jpg");
   background-size: cover;
   background-position: center;
-  transition: background-image 0.3s ease;
   overflow-x: hidden; /* this fixed horizontal scrolling */
 }
 
@@ -55,8 +54,6 @@ body {
   top: 80%;
   left: 20px;
   font-size: 30px;
-  font-weight: 100;
-  letter-spacing: 0.5%;
   color: hsl(250, 5%, 23%);
   background: linear-gradient(80deg, #ffffff6b, #ad68687a);
   -webkit-background-clip: text;
@@ -110,7 +107,6 @@ body {
   left: 15%;
   font-size: 39px;
   font-weight: 100;
-  letter-spacing: 1px;
   color: #acbcec70;
 }
 
