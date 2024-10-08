@@ -33,9 +33,9 @@ function updateClock(){
 
   const now = new Date();
   let hours = now.getHours();
+  const minutes = now.getMinutes();
   const meridiem = hours >= 12 ? 'PM' : 'AM';
   hours = hours % 12 || 12;
-  const minutes = now.getMinutes();
   const timestring = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}` + " "+ meridiem;
   document.getElementById("clock").textContent = timestring;
 }
@@ -51,20 +51,14 @@ function getDateTime() {
     hour = now.getHours(),
     minute = now.getMinutes();
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   
   // 12 hours format
   
   let dayString = days[now.getDay()];
-  return `${dayString}, ${hour}:${minute}`;
+  const meridiem = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12 || 12;
+  return `${dayString}, ${hour}:${minute}` + " " +meridiem;
 }
 
 //Set date and time
