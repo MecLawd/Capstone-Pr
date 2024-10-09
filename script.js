@@ -58,7 +58,7 @@ function getDateTime() {
   let dayString = days[now.getDay()];
   const meridiem = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12 || 12;
-  return `${dayString}, ${hour}:${minute}` + " " +meridiem;
+  return `${dayString}, ${hour}:${minute}` + " " + meridiem;
 }
 
 //Set date and time
@@ -124,7 +124,7 @@ function getWeatherData(city, unit, hourlyorWeek) {
       sunRise.innerText = covertTimeTo12HourFormat(today.sunrise);
       sunSet.innerText = covertTimeTo12HourFormat(today.sunset);
     })
-    .catch((err) => {
+    .catch((_err) => {
       alert("City not found in our database");
     });
 }
@@ -180,7 +180,7 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
             sunSet.innerText = covertTimeTo12HourFormat(today.sunset);
           })
           .catch((err) => {
-            alert("Unable to retrieve weather data for your location.");
+            alert(err);
           });
       },
       () => {
