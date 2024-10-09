@@ -20,28 +20,32 @@ const temp = document.getElementById("temp"),
   tempUnit = document.querySelectorAll(".temp-unit"),
   hourlyBtn = document.querySelector(".hourly"),
   weekBtn = document.querySelector(".week"),
-  weatherCards = document.querySelector("#weather-cards"),
-  body = document.querySelector("body");
+  weatherCards = document.querySelector("#weather-cards");
 
 let currentCity = "";
 let currentUnit = "c";
 let hourlyorWeek = "week";
 
-// Function for clock time
-function updateClock() {
+
+// Function for clock time 
+
+function updateClock(){
+
   const now = new Date();
   let hours = now.getHours();
   const minutes = now.getMinutes();
   const meridiem = hours >= 12 ? 'PM' : 'AM';
   hours = hours % 12 || 12;
-  const timestring = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}` + " " + meridiem;
+  const timestring = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}` + " "+ meridiem;
   document.getElementById("clock").textContent = timestring;
 }
 
 updateClock();
 setInterval(updateClock, 1000);
 
-// Function to get date and time
+
+// function to get date and time
+
 function getDateTime() {
   let now = new Date(),
     hour = now.getHours(),
@@ -50,23 +54,22 @@ function getDateTime() {
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   // 12 hours format
+
   let dayString = days[now.getDay()];
+  return `${dayString}, ${hour}:${minute}`;
   const meridiem = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12 || 12;
-  return `${dayString}, ${hour}:${minute}` + " " + meridiem;
+  return `${dayString}, ${hour}:${minute}` + " " +meridiem;
 }
 
-
-
-// Set date and time
+//Set date and time
 date.innerText = getDateTime();
 setInterval(() => {
   date.innerText = getDateTime();
 }, 1000);
 
 
-
-// Function to convert Celsius to Fahrenheit
+// function to convert celcius to fahrenheit
 function celciusToFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(1);
 }
@@ -80,7 +83,7 @@ celciusBtn.addEventListener("click", () => {
 
 
 
-// Function to get weather data
+// function to get weather data
 function getWeatherData(city, unit, hourlyorWeek) {
   const apiKey = "9XGBWPMN23H5BVD8F2K8HZCK2";
   fetch(
@@ -93,35 +96,30 @@ function getWeatherData(city, unit, hourlyorWeek) {
     .then((response) => response.json())
     .then((data) => {
       let today = data.currentConditions;
-
-      currentLocation.innerText = data.resolvedAddress;
-
       if (unit === "c") {
         temp.innerText = today.temp;
       } else {
         temp.innerText = celciusToFahrenheit(today.temp);
       }
-
-      mainIcon.src = getIcon(today.icon);
-      changeBackground(today.icon);
-
+      currentLocation.innerText = data.resolvedAddress;
       condition.innerText = today.conditions;
       rain.innerText = "Perc - " + today.precip + "%";
 
       windSpeed.innerText = today.windspeed;
+
+      mainIcon.src = getIcon(today.icon);
+      changeBackground(today.icon);
       humidity.innerText = today.humidity + "%";
       updateHumidityStatus(today.humidity);
       visibilty.innerText = today.visibility;
       updateVisibiltyStatus(today.visibility);
       airQuality.innerText = today.winddir;
       updateAirQualityStatus(today.winddir);
-
       if (hourlyorWeek === "hourly") {
         updateForecast(data.days[0].hours, unit, "day");
       } else {
         updateForecast(data.days, unit, "week");
       }
-
       sunRise.innerText = covertTimeTo12HourFormat(today.sunrise);
       sunSet.innerText = covertTimeTo12HourFormat(today.sunset);
     })
@@ -129,8 +127,6 @@ function getWeatherData(city, unit, hourlyorWeek) {
       alert("City not found in our database");
     });
 }
-
-
 
 // Function to get weather data based on user's location
 function getWeatherDataByLocation(unit, hourlyorWeek) {
@@ -149,8 +145,9 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
         )
           .then((response) => response.json())
           .then((data) => {
+            
             getCityNameFromCoordinates(lat, lon);
-
+            
             let today = data.currentConditions;
             if (unit === "c") {
               temp.innerText = today.temp;
@@ -218,7 +215,8 @@ function getCityNameFromCoordinates(lat, lon) {
     });
 }
 
-// function to update forecast
+//function to update Forecast
+
 function updateForecast(data, unit, type) {
   weatherCards.innerHTML = "";
   let day = 0;
@@ -246,89 +244,108 @@ function updateForecast(data, unit, type) {
       tempUnit = "°F";
     }
     card.innerHTML = `
-      <h2 class="day-name">${dayName}</h2>
-      <div class="card-icon">
-        <img src="${iconSrc}" class="day-icon" alt="" />
-      </div>
-      <div class="day-temp">
-        <h2 class="temp">${dayTemp}</h2>
-        <span class="temp-unit">${tempUnit}</span>
-      </div>
-    `;
+                <h2 class="day-name">${dayName}</h2>
+            <div class="card-icon">
+              <img src="${iconSrc}" class="day-icon" alt="" />
+            </div>
+            <div class="day-temp">
+              <h2 class="temp">${dayTemp}</h2>
+              <span class="temp-unit">${tempUnit}</span>
+            </div>
+  `;
     weatherCards.appendChild(card);
     day++;
   }
 }
 
-// change weather icons and Background images based on icon property from API
+
+// function to change weather icons
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
-    return "assets/cloudy.png";
+    return "https://i.ibb.co/PZQXH8V/27.png";
   } else if (condition === "partly-cloudy-night") {
-    return "assets/cloudy-night.png";
+    return "https://i.ibb.co/Kzkk59k/15.png";
   } else if (condition === "rain") {
-    return "assets/rain.png";
+    return "https://i.ibb.co/kBd2NTS/39.png";
   } else if (condition === "clear-day") {
-    return "assets/clear-day.png";
+    return "https://i.ibb.co/rb4rrJL/26.png";
   } else if (condition === "clear-night") {
-    return "assets/clear-night.png";
-  } else if (condition === "snow") {
-    return "assets/snow.png";
-  } else if (condition === "wind") {
-    return "assets/wind.png";
+    return "https://i.ibb.co/1nxNGHL/10.png";
   } else {
-    return "assets/cloudy.png";
+    return "https://i.ibb.co/rb4rrJL/26.png";
   }
 }
+
+// function to change background img depending on weather conditions
+
 
 function changeBackground(condition) {
-  const bg = document.querySelector(".weather-app");
-
+  const body = document.querySelector("body");
+  let bg = "";
   if (condition === "partly-cloudy-day") {
-    bg.style.backgroundImage = "url('./assets/cloudy-bg.png')";
+    bg = "https://images.pexels.com/photos/1054221/pexels-photo-1054221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   } else if (condition === "partly-cloudy-night") {
-    bg.style.backgroundImage = "url('./assets/cloudy-night-bg.png')";
+    bg = "https://img.stablecog.com/insecure/1920w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZTQ4NmNhYWQtZTAzMC00YzQzLTk3MWEtZjY4YjY3N2U3ZDliLmpwZWc.webp";
   } else if (condition === "rain") {
-    bg.style.backgroundImage = "url('./assets/rain-bg.png')";
+    bg = "https://images.unsplash.com/photo-1511634829096-045a111727eb?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   } else if (condition === "clear-day") {
-    bg.style.backgroundImage = "url('./assets/clear-day-bg.png')";
+    bg = "https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   } else if (condition === "clear-night") {
-    bg.style.backgroundImage = "url('./assets/clear-night-bg.png')";
-  } else if (condition === "snow") {
-    bg.style.backgroundImage = "url('./assets/snow-bg.png')";
-  } else if (condition === "wind") {
-    bg.style.backgroundImage = "url('./assets/wind-bg.png')";
+    bg = "https://wallpapers.com/images/hd/night-sky-background-cpxe9t4nl6x8qwiv.jpg";
   } else {
-    bg.style.backgroundImage = "url('./assets/cloudy-bg.png')";
+    bg = "https://papers.co/wallpaper/papers.co-nl31-night-lake-blue-sunset-nature-soft-purple-25-wallpaper.jpg";
+  }
+  body.style.backgroundImage = `linear-gradient(rgba(103, 52, 185, 0.288), rgba(17, 12, 12, 0.5)), url(${bg})`;
+}
+
+
+//get hours from hh:mm:ss Sunrise/set
+
+function getHour(time) {
+  let hour = time.split(":")[0];
+  let min = time.split(":")[1]
+  if (hour > 12) {
+    hour = hour - 12;
+    return `${hour}:${min} PM`;
+  } else {
+    return `${hour}:${min} AM`;
   }
 }
 
-// Function to convert time to 12-hour format
+// convert time to 12 hour format
+
 function covertTimeTo12HourFormat(time) {
   let hour = time.split(":")[0];
   let minute = time.split(":")[1];
-  let meridiem = "AM";
-  if (hour > 12) {
-    meridiem = "PM";
-    hour -= 12;
-  }
-  return `${hour}:${minute} ${meridiem}`;
+  let ampm = hour >= 12 ? "pm" : "am";
+  hour = hour % 12;
+  hour = hour ? hour : 12;
+  hour = hour < 10 ? "0" + hour : hour;
+  minute = minute < 10 ? "0" + minute : minute;
+  let strTime = hour + ":" + minute + " " + ampm;
+  return strTime;
 }
 
-// Function to get hours from forecast
-function getHour(time) {
-  let hour = time.split(":")[0];
-  return `${hour}:00`;
-}
+// function to get day name from date for 7 forcats units
 
-// Function to get day name from forecast
 function getDayName(date) {
   let day = new Date(date);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   return days[day.getDay()];
 }
 
-// Function to update Humidity status
+
+
+// Get humidity and its status
+
 function updateHumidityStatus(humidity) {
   if (humidity <= 30) {
     humidityStatus.innerText = "Low";
@@ -339,7 +356,8 @@ function updateHumidityStatus(humidity) {
   }
 }
 
-// Function to update visibility status
+// function to get visibility status
+
 function updateVisibiltyStatus(visibility) {
   if (visibility <= 0.03) {
     visibilityStatus.innerText = "Dense Fog";
@@ -353,39 +371,61 @@ function updateVisibiltyStatus(visibility) {
     visibilityStatus.innerText = "Light Mist";
   } else if (visibility <= 5.4) {
     visibilityStatus.innerText = "Very Light Mist";
+  } else if (visibility <= 10.8) {
+    visibilityStatus.innerText = "Clear Air";
   } else {
-    visibilityStatus.innerText = "Clear";
+    visibilityStatus.innerText = "Very Clear Air";
   }
 }
 
-// Function to update air quality status
-function updateAirQualityStatus(airQuality) {
-  if (airQuality <= 50) {
+// function to get air quality status
+
+function updateAirQualityStatus(airquality) {
+  if (airquality <= 50) {
     airQualityStatus.innerText = "Good";
-  } else if (airQuality <= 100) {
+  } else if (airquality <= 100) {
     airQualityStatus.innerText = "Moderate";
-  } else if (airQuality <= 150) {
+  } else if (airquality <= 150) {
     airQualityStatus.innerText = "Unhealthy for Sensitive Groups";
-  } else if (airQuality <= 200) {
+  } else if (airquality <= 200) {
     airQualityStatus.innerText = "Unhealthy";
-  } else if (airQuality <= 250) {
+  } else if (airquality <= 250) {
     airQualityStatus.innerText = "Very Unhealthy";
   } else {
     airQualityStatus.innerText = "Hazardous";
   }
 }
 
-// Event listener to search weather for a specific city
+// function to handle search form
+
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let location = search.value;
   if (location) {
     currentCity = location;
-    getWeatherData(currentCity, currentUnit, hourlyorWeek);
+    getWeatherData(location, currentUnit, hourlyorWeek);
   }
 });
 
-// Event listener to change weather data to weekly or hourly forecast
+
+// function to change units
+
+function changeUnit(unit) {
+  if (currentUnit !== unit) {
+    currentUnit = unit;
+    tempUnit.forEach((elem) => {
+      elem.innerText = `°${unit.toUpperCase()}`;
+    });
+    if (unit === "c") {
+      celciusBtn.classList.add("active");
+      fahrenheitBtn.classList.remove("active");
+    } else {
+      celciusBtn.classList.remove("active");
+      fahrenheitBtn.classList.add("active");
+    }
+    getWeatherData(currentCity, currentUnit, hourlyorWeek);
+  }
+}
 hourlyBtn.addEventListener("click", () => {
   changeTimeSpan("hourly");
 });
@@ -393,30 +433,18 @@ weekBtn.addEventListener("click", () => {
   changeTimeSpan("week");
 });
 
-function changeTimeSpan(type) {
-  if (type === "hourly") {
-    hourlyorWeek = "hourly";
-  } else {
-    hourlyorWeek = "week";
-  }
-  if (currentCity) {
-    getWeatherData(currentCity, currentUnit, hourlyorWeek);
-  } else {
-    getWeatherDataByLocation(currentUnit, hourlyorWeek);
-  }
-}
+// icon
 
-// Change unit function
-function changeUnit(unit) {
-  if (currentUnit !== unit) {
-    currentUnit = unit;
-    tempUnit.forEach((elem) => {
-      elem.innerText = `°${unit.toUpperCase()}`;
-    });
-    if (currentCity) {
-      getWeatherData(currentCity, currentUnit, hourlyorWeek);
+function changeTimeSpan(unit) {
+  if (hourlyorWeek !== unit) {
+    hourlyorWeek = unit;
+    if (unit === "hourly") {
+      hourlyBtn.classList.add("active");
+      weekBtn.classList.remove("active");
     } else {
-      getWeatherDataByLocation(currentUnit, hourlyorWeek);
+      hourlyBtn.classList.remove("active");
+      weekBtn.classList.add("active");
     }
+    getWeatherData(currentCity, currentUnit, hourlyorWeek);
   }
 }
