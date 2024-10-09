@@ -144,7 +144,7 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
         )
           .then((response) => response.json())
           .then((data) => {
-            
+            console.log(data);
             getCityNameFromCoordinates(lat, lon);
 
             let today = data.currentConditions;
@@ -261,13 +261,15 @@ function updateForecast(data, unit, type) {
 // function to change weather icons
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
-    return "https://i.ibb.co/PZQXH8V/27.png";
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_2-512.png";
   } else if (condition === "partly-cloudy-night") {
-    return "https://i.ibb.co/Kzkk59k/15.png";
-  } else if (condition === "rain") {
-    return "https://i.ibb.co/kBd2NTS/39.png";
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_5-512.png";
+  } else if (condition === "cloudy") {
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_1-256.png";
+  }else if (condition === "rain") {
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_16-256.png";
   } else if (condition === "clear-day") {
-    return "https://i.ibb.co/rb4rrJL/26.png";
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_3-512.png";
   } else if (condition === "clear-night") {
     return "https://i.ibb.co/1nxNGHL/10.png";
   } else {
@@ -283,6 +285,8 @@ function changeBackground(condition) {
   let bg = "";
   if (condition === "partly-cloudy-day") {
     bg = "https://images.pexels.com/photos/1054221/pexels-photo-1054221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+  } else if (condition === "cloudy") {
+    bg = "https://photo-cdn2.icons8.com/iZ77ePI1ir6OsyW386i0Gw9LVnZ8utAJW2PVgaePudA/rs:fit:1906:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi82MWU1OGJmZmEw/NDY0ZjczOWM3ODUw/N2E4MTQzMjM0OC5q/cGc.jpg";
   } else if (condition === "partly-cloudy-night") {
     bg = "https://img.stablecog.com/insecure/1920w/aHR0cHM6Ly9iLnN0YWJsZWNvZy5jb20vZTQ4NmNhYWQtZTAzMC00YzQzLTk3MWEtZjY4YjY3N2U3ZDliLmpwZWc.webp";
   } else if (condition === "rain") {
