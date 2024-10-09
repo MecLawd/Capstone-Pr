@@ -41,14 +41,6 @@ body {
 
 
 
-.left .video {
-  opacity: 0.5;
-}
-
-
-
-
-
 .left h1 {
   position: absolute;
   top: 80%;
@@ -64,20 +56,22 @@ body {
 .left #clock{
   display: flex;
   align-items: center;
-  top: 48%;
+  top: 46%;
   left: 70px;
   font-family: monospace;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 35px;
   letter-spacing: 10px;
   color: rgba(222, 216, 224, 0.11);
-  background: linear-gradient(80deg, #c56d6d6c, #fff9f95b);
+  background: linear-gradient(80deg, #ffffff, #a07171c0);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   }
 
-
+.left video {
+  opacity: 0.8;
+}
 
 
 .left h2 {
@@ -107,7 +101,7 @@ body {
   left: 15%;
   font-size: 39px;
   font-weight: 100;
-  color: #acbcec70;
+  color: #dac3c3a2;
 }
 
 .links nav {
