@@ -21,6 +21,7 @@ const temp = document.getElementById("temp"),
   hourlyBtn = document.querySelector(".hourly"),
   weekBtn = document.querySelector(".week"),
   weatherCards = document.querySelector("#weather-cards");
+  const body = document.querySelector("body");
 
 let currentCity = "";
 let currentUnit = "c";
@@ -104,13 +105,14 @@ function getWeatherData(city, unit, hourlyorWeek) {
         temp.innerText = celciusToFahrenheit(today.temp);
       }
       
+      mainIcon.src = getIcon(today.icon);
+      changeBackground(today.icon);
+      
       condition.innerText = today.conditions;
       rain.innerText = "Perc - " + today.precip + "%";
       
+
       windSpeed.innerText = today.windspeed;
-      
-      mainIcon.src = getIcon(today.icon);
-      changeBackground(today.icon);
       humidity.innerText = today.humidity + "%";
       updateHumidityStatus(today.humidity);
       visibilty.innerText = today.visibility;
@@ -174,7 +176,8 @@ function updateForecast(data, unit, type) {
 }
 
 
-// function to change weather icons
+// function to change weather icons and Background images depends on icon proprety given by api
+
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
     return "https://i.ibb.co/PZQXH8V/27.png";
@@ -191,12 +194,11 @@ function getIcon(condition) {
   }
 }
 
-// function to change background img depending on weather conditions
-
 
 function changeBackground(condition) {
-  const body = document.querySelector("body");
+
   let bg = "";
+
   if (condition === "partly-cloudy-day") {
     bg = "https://images.pexels.com/photos/1054221/pexels-photo-1054221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
   } else if (condition === "partly-cloudy-night") {
@@ -210,6 +212,7 @@ function changeBackground(condition) {
   } else {
     bg = "https://papers.co/wallpaper/papers.co-nl31-night-lake-blue-sunset-nature-soft-purple-25-wallpaper.jpg";
   }
+  
   body.style.backgroundImage = `linear-gradient(rgba(103, 52, 185, 0.288), rgba(17, 12, 12, 0.5)), url(${bg})`;
 }
 
@@ -331,6 +334,7 @@ function changeUnit(unit) {
     tempUnit.forEach((elem) => {
       elem.innerText = `°${unit.toUpperCase()}`;
     });
+
     if (unit === "c") {
       celciusBtn.classList.add("active");
       fahrenheitBtn.classList.remove("active");
@@ -338,13 +342,17 @@ function changeUnit(unit) {
       celciusBtn.classList.remove("active");
       fahrenheitBtn.classList.add("active");
     }
+
     getWeatherData(currentCity, currentUnit, hourlyorWeek);
   }
 }
-hourlyBtn.addEventListener("click", () => {
+
+  hourlyBtn.addEventListener("click", () => {
   changeTimeSpan("hourly");
 });
-weekBtn.addEventListener("click", () => {
+
+
+  weekBtn.addEventListener("click", () => {
   changeTimeSpan("week");
 });
 
