@@ -56,7 +56,6 @@ function getDateTime() {
   // 12 hours format
 
   let dayString = days[now.getDay()];
-  return `${dayString}, ${hour}:${minute}`;
   const meridiem = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12 || 12;
   return `${dayString}, ${hour}:${minute}` + " " +meridiem;
