@@ -144,8 +144,11 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            
+
+            currentCity = data.resolvedAddress;
             getCityNameFromCoordinates(lat, lon);
+          
 
             let today = data.currentConditions;
             if (unit === "c") {
