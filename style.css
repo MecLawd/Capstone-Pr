@@ -334,8 +334,8 @@ img {
 .divider {
   width: 100%;
   height: 1px;
-  background: #000000;
-  box-shadow: 0px 10px 10px rgba(0, 8, 1, 8), 0 1px 10px rgb(0, 0, 0);
+  background: linear-gradient(80deg, #dac97e, #472085ee);
+  box-shadow: 0px 1px 10px rgba(0, 8, 1, 5), 0 1px 8px hsl(020, 0%, 80%);
   margin: 40px 0;
 }
 .condition-rain {
