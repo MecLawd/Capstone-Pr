@@ -102,6 +102,7 @@ function getWeatherData(city, unit, hourlyorWeek) {
       } else {
         temp.innerText = celciusToFahrenheit(today.temp);
       }
+      
       currentLocation.innerText = data.resolvedAddress;
       condition.innerText = today.conditions;
       rain.innerText = "Perc - " + today.precip + "%";
@@ -208,7 +209,7 @@ function getCityNameFromCoordinates(lat, lon) {
     .then((data) => {
       if (data.results.length > 0) {
         const city = data.results[0].components.region;
-        currentLocation.innerText = city;
+        currentLocation.innerText = data.results[0].components.region;
       }
     })
     .catch((error) => {
