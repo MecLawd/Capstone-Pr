@@ -53,8 +53,6 @@ function getDateTime() {
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  // 12 hours format
-
   let dayString = days[now.getDay()];
   const meridiem = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12 || 12;
@@ -208,7 +206,7 @@ function getCityNameFromCoordinates(lat, lon) {
     .then((data) => {
       if (data.results.length > 0) {
         const city = data.results[0].components.region;
-        currentLocation.innerText = data.results[0].components.region;
+        currentLocation.innerText = city;
       }
     })
     .catch((error) => {
