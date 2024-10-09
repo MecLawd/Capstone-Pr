@@ -95,12 +95,15 @@ function getWeatherData(city, unit, hourlyorWeek) {
     .then((response) => response.json())
     .then((data) => {
       let today = data.currentConditions;
+
+      currentLocation.innerText = data.resolvedAddress;
+      
       if (unit === "c") {
         temp.innerText = today.temp;
       } else {
         temp.innerText = celciusToFahrenheit(today.temp);
       }
-      currentLocation.innerText = data.resolvedAddress;
+      
       condition.innerText = today.conditions;
       rain.innerText = "Perc - " + today.precip + "%";
       
