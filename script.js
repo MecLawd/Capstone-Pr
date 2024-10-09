@@ -162,7 +162,6 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
 
             condition.innerText = today.conditions;
             rain.innerText = "Perc - " + today.precip + "%";
-
             windSpeed.innerText = today.windspeed;
             humidity.innerText = today.humidity + "%";
             updateHumidityStatus(today.humidity);
@@ -170,6 +169,7 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
             updateVisibiltyStatus(today.visibility);
             airQuality.innerText = today.winddir;
             updateAirQualityStatus(today.winddir);
+
 
             if (hourlyorWeek === "hourly") {
               updateForecast(data.days[0].hours, unit, "day");
