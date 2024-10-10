@@ -220,7 +220,6 @@ function getCityNameFromCoordinates(lat, lon) {
     });
 }
 
-
 //function to update Forecast
 
 function updateForecast(data, unit, type) {
@@ -340,14 +339,7 @@ function covertTimeTo12HourFormat(time) {
 
 function getDayName(date) {
   let day = new Date(date);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
   ];
   return days[day.getDay()];
 }
