@@ -81,6 +81,7 @@ celciusBtn.addEventListener("click", () => {
 
 
 // function to get weather data
+
 function getWeatherData(city, unit, hourlyorWeek) {
 
   const apiKey = "9XGBWPMN23H5BVD8F2K8HZCK2";
