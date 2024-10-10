@@ -197,6 +197,8 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
 // Call this function when the page loads
 getWeatherDataByLocation(currentUnit, hourlyorWeek);
 
+
+
 // Get city name from coordinates using OpenCage API
 function getCityNameFromCoordinates(lat, lon) {
   const apiKey = "0c1e47e2a7494268b2f4291b55dda719";
@@ -217,6 +219,7 @@ function getCityNameFromCoordinates(lat, lon) {
       alert(error.message);
     });
 }
+
 
 //function to update Forecast
 
@@ -362,6 +365,7 @@ function updateHumidityStatus(humidity) {
     humidityStatus.innerText = "High";
   }
 }
+
 
 // function to get visibility status
 
