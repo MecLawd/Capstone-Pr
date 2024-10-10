@@ -56,7 +56,6 @@ body {
 .left #clock{
   display: flex;
   align-items: center;
-  justify-content: center;
   top: 46%;
   left: 70px;
   font-family: monospace;
