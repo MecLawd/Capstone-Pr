@@ -82,7 +82,7 @@ celciusBtn.addEventListener("click", () => {
 
 // function to get weather data
 function getWeatherData(city, unit, hourlyorWeek) {
-  
+
   const apiKey = "9XGBWPMN23H5BVD8F2K8HZCK2";
   fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`,
@@ -99,7 +99,7 @@ function getWeatherData(city, unit, hourlyorWeek) {
       } else {
         temp.innerText = celciusToFahrenheit(today.temp);
       }
-      
+
       currentLocation.innerText = data.resolvedAddress;
       condition.innerText = today.conditions;
       rain.innerText = "Perc - " + today.precip + "%";
@@ -145,7 +145,7 @@ function getWeatherDataByLocation(unit, hourlyorWeek) {
           .then((response) => response.json())
           .then((data) => {
             
-
+            
             currentCity = data.resolvedAddress;
             getCityNameFromCoordinates(lat, lon);
           
