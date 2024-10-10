@@ -298,7 +298,7 @@ function changeBackground(condition) {
   } else if (condition === "rain") {
     bg = "https://images.unsplash.com/photo-1511634829096-045a111727eb?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
   } else if (condition === "clear-day") {
-    bg = "https://images.pexels.com/photos/186980/pexels-photo-186980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+    bg = "https://photo-cdn2.icons8.com/yOB2QtpOyWNDJVYUG8P8lSqkaQYXCkApf5ggj1KCxoU/rs:fit:1606:1072/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi83NmQzZTFmMThi/ODU0MTliYmI0YWEy/MGQyNTM2ZTIyZS5q/cGc.jpg";
   } else if (condition === "clear-night") {
     bg = "https://wallpapers.com/images/hd/night-sky-background-cpxe9t4nl6x8qwiv.jpg";
   } else {
