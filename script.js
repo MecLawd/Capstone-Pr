@@ -274,7 +274,7 @@ function getIcon(condition) {
   } else if (condition === "clear-day") {
     return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_3-512.png";
   } else if (condition === "clear-night") {
-    return "https://i.ibb.co/1nxNGHL/10.png";
+    return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_4-512.png";
   } else {
     return "https://i.ibb.co/rb4rrJL/26.png";
   }
