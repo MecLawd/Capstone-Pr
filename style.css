@@ -126,12 +126,11 @@ img {
   flex: 0 0 30%; /* Use flex to allow responsive resizing */
   min-width: 250px;
   padding: 20px;
-  background: #5c5a5a6e;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   backdrop-filter: blur(65px);
-  background: rgba(92, 90, 90, 0.027);
+  background: rgba(78, 78, 78, 0.212);
 }
 
 /* Media Queries for Responsiveness */
@@ -406,9 +405,10 @@ background-color: linear-gradient(80deg, #ebc2c2, #a22ec2ee);
   width: 100%;
   min-width: 400px;
   padding: 20px 40px;
-  background-color: #000000a9;
+  background-color: #000000de;
   position: relative;
   padding-bottom: 90px;
+  
 }
 
 /* Alx weather heading */
