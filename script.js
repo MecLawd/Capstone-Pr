@@ -200,7 +200,9 @@ getWeatherDataByLocation(currentUnit, hourlyorWeek);
 
 
 // Get city name from coordinates using OpenCage API
+
 function getCityNameFromCoordinates(lat, lon) {
+
   const apiKey = "0c1e47e2a7494268b2f4291b55dda719";
   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${apiKey}`)
     .then((response) => {
@@ -266,6 +268,7 @@ function updateForecast(data, unit, type) {
 
 // function to change weather icons
 function getIcon(condition) {
+  
   if (condition === "partly-cloudy-day") {
     return "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_2-512.png";
   } else if (condition === "partly-cloudy-night") {
