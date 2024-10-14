@@ -409,6 +409,7 @@ background-color: linear-gradient(80deg, #ebc2c2, #a22ec2ee);
   position: relative;
   padding-bottom: 90px;
   
+  
 }
 
 /* Alx weather heading */
@@ -533,9 +534,9 @@ background-color: linear-gradient(80deg, #ebc2c2, #a22ec2ee);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 10px;
   margin-top: 80px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 20px;
   backdrop-filter: blur(40px);
   background: rgba(0, 0, 0, 0.11);
